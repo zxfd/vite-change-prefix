@@ -1,0 +1,29 @@
+{
+  "name": "vite-change-prefix",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./lib/index.esm.js",
+  "type": "module",
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "build": "rollup -c "
+  },
+  "files": [
+    "lib",
+    "src",
+    "readme.md"
+  ],
+  "keywords": [
+    "vite",
+    "change prefix",
+    "element-ui"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "rollup": "^3.17.2"
+  },
+  "dependencies": {
+    "@rollup/plugin-replace": "^5.0.2"
+  }
+}
