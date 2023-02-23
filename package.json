@@ -2,7 +2,11 @@
   "name": "vite-change-prefix",
   "version": "1.0.0",
   "description": "",
-  "main": "./lib/index.esm.js",
+  "main": "./lib/cjs/index.cjs",
+  "exports": {
+    "import": "./lib/es/index.mjs",
+    "default": "./lib/cjs/index.cjs"
+  },
   "type": "module",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
