@@ -1,7 +1,7 @@
 import replace from "@rollup/plugin-replace"
 
 const defaultConfig = {
-  "el-": "tsl-vite-",
+  "el-": "z-vite-",
   exclude: ["./src/*"],
 }
 
