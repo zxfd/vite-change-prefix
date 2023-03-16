@@ -12,34 +12,40 @@ pnpm i vite-change-prefix -D
 
 ## 使用
 
-开箱即用
+默认将`el`替换为`mf`
+
+### 全部替换
 
 ```js
-//  vite.config中
+import { changePrefixAll } from "vite-change-prefix"
 
-import changePrefix from "vite-change-prefix"
-
+const [changeComponentName, changePrefixName] = changePrefixAll("other-prefix-")
 export default {
   // 省略其他配置
-  plugins: [changePrefix()],
+  plugins: [changeComponentName, changePrefixName],
   // 省略其他配置
 }
 ```
 
-默认将`el-`替换为`z-vite-`,替换为其他命名空间可以按照如下格式自行配置:
+这种情况下，即使是在自己代码`src/`目录下面的`.el-xxx`的样式也会被替换掉
+
+### 仅替换 element-ui 包内的前缀
 
 ```js
+import { changePrefix } from "vite-change-prefix"
 export default {
   // 省略其他配置
-  plugins: [
-    changePrefix({
-      "el-": "other-prefix-",
-    }),
-  ],
+  plugins: [changePrefix("other-prefix-")],
   // 省略其他配置
 }
 ```
 
-## 其他配置
+不传参则默认将`el`替换为`mf`。
 
-同[@rollup/plugin-replace](https://www.npmjs.com/package/@rollup/plugin-replace)
+这种情况下不会替换你自己代码`src/`目录下面的`.el-xxx`的样式，如果需要覆盖组件样式，你需要用你自己的前缀开头来覆盖，例如默认情况下的`ml-`：
+
+```css
+.ml-button {
+  color: red !important;
+}
+```
